@@ -17,7 +17,7 @@ module.exports = {
   },
   // ファイルタイプ毎の処理を記述する
   module: {
-    roules: [{
+    rules: [{
       test: /\.tsx?$/,
       use: 'ts-loader',
     }, {
@@ -35,7 +35,7 @@ module.exports = {
     extensions: [
       '.ts',
       '.tsx',
-      '.js.',
+      '.js',
     ]
   },
 };
