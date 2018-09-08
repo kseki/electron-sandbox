@@ -22,3 +22,34 @@ a2RMapper.addWork<Action.IAddTaskAction>(
     state.tasks.push(createTask(action.taskName, action.deadline));
   },
 );
+
+/** タスクを管理ょすうる */
+a2RMapper.addWork<Action.IToggleCompleteAction>(
+  Action.TOGGLE_COMPLETE_TASK,
+  (state, action) => {
+    const {tasks} = state;
+    // 上記は下記と同じ意味
+    // const tasks = state.tasks
+
+    const target = tasks.find((it) => it.id === action.taskId);
+    if (!target) { return; }
+    target.complete = !target.complete;
+  },
+);
+
+/** タスクを削除する */
+a2RMapper.addWork<Action.IDeleteAction>(
+  Action.DELETE_TASK,
+  (state, action) => {
+    const {tasks} = state;
+    const target = tasks.find((it) => it.id === action.taskId);
+    if (!target) { return; }
+    // 指定したID以外のオブジェクトを抽出し、それを新しいリストとする
+    state.tasks = tasks.filter((it) => it.id !== action.taskId);
+  },
+);
+
+/** Reducer 本体 */
+export const TaskReducer: Redux.Reducer<ITaskList> = (state = initTaskList, action) => {
+  return a2RMapper.execute(state, action);
+};

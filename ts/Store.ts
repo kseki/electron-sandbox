@@ -1,4 +1,6 @@
 import { AnyAction, combineReducers, createStore } from 'redux';
+
+import { TaskReducer } from './reducers/TaskReducer';
 import { ITaskList } from './states/ITask';
 
 /**
@@ -12,9 +14,11 @@ export interface IState {
 }
 
 // 複数の reducer を束ねる
-const reducers = combineReducers<IState>({
+const combinedReducer = combineReducers<IState>({
+  taskList: TaskReducer,
   // reducer が増えたら足していく
 });
 
-export const store = createStore<IState, AnyAction, {}, {}>(reducers);
+export const store = createStore(combinedReducer);
+
 export default store;
