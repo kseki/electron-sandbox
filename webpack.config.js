@@ -28,6 +28,9 @@ module.exports = {
         configFile: './tslint.json',
         typeCheck: true,
       },
+    }, {
+      test: /\.css$/,
+      loader: ['style-loader', 'css-loader'],
     }],
   },
   // 処理対象のファイルを記述する
