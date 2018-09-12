@@ -1,4 +1,4 @@
-import * as Moment from 'moment';
+import Moment from 'moment';
 import * as React from 'react';
 import Styled from 'styled-components';
 

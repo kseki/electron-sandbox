@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
-    "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
-    "jsx": "react",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
-    "outDir": "./dist",                        /* Redirect output structure to the directory. */
-    "strict": true,                           /* Enable all strict type-checking options. */
-    "sourceRoot": "./tsx",                      /* Specify the location where debugger should locate TypeScript files instead of source locations. */
-    "inlineSourceMap": true,               /* Emit a single file with source maps instead of having a separate file. */
+    "target": "es6",
+    "module": "commonjs",
+    "jsx": "react",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "sourceRoot": "./tsx",
+    "inlineSourceMap": true,
     "inlineSources": true
   },
   "include": [

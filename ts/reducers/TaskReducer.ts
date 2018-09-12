@@ -1,4 +1,4 @@
-import * as Clone from 'clone';
+import Clone from 'clone';
 import * as Redux from 'redux';
 
 import * as Action from '../actions/TaskActions';
@@ -9,10 +9,10 @@ const a2RMapper = createA2RMapper<ITaskList>();
 
 /** タスク一覧を表示する */
 a2RMapper.addWork<Action.IShowTaskAction>(
-    Action.SHOW_TASKS,
-    (state, action) => {
-        state.tasks = Clone(action.tasks);
-    },
+  Action.SHOW_TASKS,
+  (state, action) => {
+    state.tasks = Clone(action.tasks);
+  },
 );
 
 /** タスクを追加する */
@@ -23,14 +23,13 @@ a2RMapper.addWork<Action.IAddTaskAction>(
   },
 );
 
-/** タスクを管理ょすうる */
+/** タスクを完了/未完了を切り替える */
 a2RMapper.addWork<Action.IToggleCompleteAction>(
   Action.TOGGLE_COMPLETE_TASK,
   (state, action) => {
     const {tasks} = state;
     // 上記は下記と同じ意味
     // const tasks = state.tasks
-
     const target = tasks.find((it) => it.id === action.taskId);
     if (!target) { return; }
     target.complete = !target.complete;

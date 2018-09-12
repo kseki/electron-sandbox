@@ -23,25 +23,25 @@ export const createShowTasksAction: ActionCreator<IShowTaskAction> = (tasks: ITa
     {
       complete: false,
       deadline: Moment().add(1, 'day').toDate(),
-      id: 0,
+      id: '0',
       taskName: 'task01',
     },
     {
       complete: true,
       deadline: Moment().add(1, 'day').toDate(),
-      id: 1,
+      id: '1',
       taskName: 'task02',
     },
     {
       complete: false,
       deadline: Moment().add(-1, 'day').toDate(),
-      id: 2,
+      id: '2',
       taskName: 'task03',
     },
     {
       complete: true,
       deadline: Moment().add(-1, 'day').toDate(),
-      id: 3,
+      id: '3',
       taskName: 'task04',
     },
   ];

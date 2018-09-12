@@ -1,4 +1,4 @@
-import * as clone from 'clone';
+import Clone from 'clone';
 import { Action } from 'redux';
 
 type WorkOfAction<S, A extends Action = any> = (state: S, action: A) => void;
@@ -24,7 +24,7 @@ class ActionToReducerMapper<S> {
     let newState = state;
     const process = this.works[action.type];
     if (!!process) {
-      newState = clone(state);
+      newState = Clone(state);
       process(newState, action);
     }
     return newState;
