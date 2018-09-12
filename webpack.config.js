@@ -17,18 +17,23 @@ module.exports = {
   },
   // ファイルタイプ毎の処理を記述する
   module: {
-    rules: [{
-      test: /\.tsx?$/,
-      use: 'ts-loader',
-    }, {
-      test: /\.tsx?$/,
-      enforce: 'pre',
-      loader: 'tslint-loader',
-      options: {
-        configFile: './tslint.json',
-        typeCheck: true,
-      },
-    }],
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+      }, {
+        test: /\.tsx?$/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+        options: {
+          configFile: './tslint.json',
+          typeCheck: true,
+        },
+      }, {
+        test: /\.css$/,
+        loader: ['style-loader', 'css-loader'],
+      }
+    ],
   },
   // 処理対象のファイルを記述する
   resolve: {
